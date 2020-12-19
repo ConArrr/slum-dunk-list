@@ -3,6 +3,7 @@ import React, { FC } from 'react'
 import { Redirect, Route, RouteComponentProps, Switch } from 'react-router'
 
 import AllCharacters from 'containers/templates/AllCharacters'
+import SchoolCharacters from 'containers/templates/SchoolCharacters'
 
 const Characters: FC<RouteComponentProps> = ({ match }) => (
   <>
@@ -12,6 +13,9 @@ const Characters: FC<RouteComponentProps> = ({ match }) => (
     <Switch>
       <Route exact path={`${match.path}`}>
         <AllCharacters />
+      </Route>
+      <Route path={`${match.path}/:schoolCode`}>
+        <SchoolCharacters />
       </Route>
       <Redirect to="/" />
     </Switch>
